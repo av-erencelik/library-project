@@ -1,0 +1,23 @@
+{
+  "name": "library-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "sass --watch public/sass:public/css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/av-erencelik/library-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/av-erencelik/library-project/issues"
+  },
+  "homepage": "https://github.com/av-erencelik/library-project#readme",
+  "dependencies": {
+    "node-sass": "^7.0.3"
+  }
+}
