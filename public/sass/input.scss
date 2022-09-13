@@ -4,6 +4,8 @@ $secondary : #f3f4f6;
 $navbar : #a8a29e;
 $black : #1c1917;
 $text : #e11d48;
+$success: #4ade80;
+$danger : #dc2626;
 
 * {
     margin: 0;
@@ -48,6 +50,56 @@ main {
             }
             button:active {
                 background-color: $primary;
+            }
+        }
+    }
+}
+
+// cards
+.cards {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 250px));
+
+
+    .card {
+        background-color: $navbar;
+        border-radius: 1rem;
+        padding: 1rem;
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        h4 {
+            padding: 1rem;
+            color: $text;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            flex: 1;
+            gap: 5px;
+            .btn {
+                width: 50%;
+                padding: 8px 8px;
+                border-radius: 8px;
+                border: 2px solid $primary;
+                color: $navbar;
+                font-weight: bold;
+                transition: all 0.4s;
+                cursor: pointer;
+            }
+            .btn:hover {
+                scale: 1.05;
+            }
+            .not_read {
+                background-color: $danger;
+            }
+            .remove {
+                background-color: $primary;
+            }
+            .read {
+                background-color: $success;
             }
         }
     }
