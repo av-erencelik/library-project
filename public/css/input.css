@@ -1,3 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto Mono", monospace;
+}
 
+header {
+  background-color: #a8a29e;
+  text-align: center;
+  padding: 1rem;
+  color: #e11d48;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 0;
+  background-color: #57534e;
+  height: 86vh;
+}
+main .container {
+  width: 70%;
+}
+main .container .add {
+  padding: 1rem;
+}
+main .container .add button {
+  background-color: #e11d48;
+  color: #a8a29e;
+  padding: 8px 16px;
+  font-weight: 700;
+  border: 2px solid #a8a29e;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.4s;
+}
+main .container .add button:hover {
+  background-color: #a8a29e;
+  color: #e11d48;
+  border-color: #e11d48;
+  cursor: pointer;
+}
+main .container .add button:active {
+  background-color: #57534e;
+}
 
 /*# sourceMappingURL=input.css.map */

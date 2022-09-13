@@ -1,0 +1,54 @@
+// general
+$primary : #57534e;
+$secondary : #f3f4f6;
+$navbar : #a8a29e;
+$black : #1c1917;
+$text : #e11d48;
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace;
+}
+
+// header 
+header {
+    background-color: $navbar;
+    text-align: center;
+    padding: 1rem;
+    color: $text
+}
+// main 
+main {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 0;
+    background-color: $primary;
+    height: 86vh;
+    .container {
+        width: 70%;
+        .add {
+            padding: 1rem;
+            button {
+                background-color: $text;
+                color: $navbar;
+                padding: 8px 16px;
+                font-weight: 700;
+                border: 2px solid $navbar;
+                border-radius: 8px;
+                font-size: 1rem;
+                transition: all 0.4s;
+            }
+            button:hover {
+                background-color: $navbar;
+                color: $text;
+                border-color: $text;
+                cursor: pointer;
+            }
+            button:active {
+                background-color: $primary;
+            }
+        }
+    }
+}
