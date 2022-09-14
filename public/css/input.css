@@ -59,7 +59,7 @@ main .container .add button:active {
   flex-direction: column;
 }
 .cards .card h4 {
-  padding: 1rem;
+  padding: 0.8rem;
   color: #e11d48;
 }
 .cards .card .buttons {
