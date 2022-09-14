@@ -37,7 +37,7 @@ function inputBook(e) {
     let pages = document.getElementById("pages").value;
     let isRead = false
     if(document.getElementById("isRead").checked) {isRead = true}
-    let newBook = new book(author,title,pages,isRead)
+    let newBook = new book(title,author,pages,isRead)
     addBookToLibrary(newBook)
     clearModalInput()
     modal.style.display = "none"
@@ -61,8 +61,8 @@ function displayBooks() {
     }
     let div = `
     <div class="card">
-      <h4>${book.title}</h4>
-      <h4>${book.author}</h4>
+      <h4>Title: ${book.title}</h4>
+      <h4>Author: ${book.author}</h4>
       <h4>${book.pages} pages</h4>
       <div class="buttons">
           <button class="btn" id="btn" data-index="${myLibrary.indexOf(book)}">Not Read</button>
