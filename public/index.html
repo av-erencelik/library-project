@@ -21,7 +21,7 @@
             <div class="add">
                 <button id="add-book">Add a Book</button>
             </div>
-            <div class="cards">
+            <div class="cards" id="cards">
                 <div class="card">
                     <h4>Lorem, ipsum dolor.</h4>
                     <h4>Lorem, ipsum.</h4>
@@ -36,7 +36,7 @@
                     <h4>Lorem, ipsum.</h4>
                     <h4>123 pages</h4>
                     <div class="buttons">
-                        <button class="btn not_read">Not Read</button>
+                        <button class="btn not_read" id="btn">Not Read</button>
                         <button class="btn remove">Remove</button>
                     </div>
                 </div>
@@ -48,10 +48,10 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <h3>Add New Book</h3>
-            <form>
-                <input type="text" placeholder="Title" required>
-                <input type="text" placeholder="Author" required>
-                <input type="number" placeholder="Pages" required>
+            <form onsubmit="inputBook(event)">
+                <input type="text" placeholder="Title" required id="title">
+                <input type="text" placeholder="Author" required id="author">
+                <input type="number" placeholder="Pages" required id="pages">
                 <div class="checkbox">
                     <label for="isRead">Have you read it</label><input type="checkbox" id="isRead">
                 </div>    
