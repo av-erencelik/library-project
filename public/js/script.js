@@ -5,6 +5,7 @@ let btn = document.getElementById("add-book");
 let span = document.getElementsByClassName("close")[0];
 let submit = document.getElementById("submit")
 
+
 class book {
     constructor(title,author,pages,isRead) {
         this.title = title
@@ -13,6 +14,8 @@ class book {
         this.isRead = isRead
     }
 }
+
+
 
 btn.onclick = function() {
   modal.style.display = "block";
@@ -56,22 +59,21 @@ function clearModalInput() {
 function displayBooks() {
   let container = document.getElementById("cards")
   for(let book of myLibrary) {
-    if(!(document.querySelector(`[data-index="${myLibrary.indexOf(book)}"]`)==null)) {
+    if(!(document.querySelector(`[data-index-read="${myLibrary.indexOf(book)}"]`)==null)) {
       continue;
     }
     let div = `
-    <div class="card">
+    <div class="card" data-index="${myLibrary.indexOf(book)}">
       <h4>Title: ${book.title}</h4>
       <h4>Author: ${book.author}</h4>
       <h4>${book.pages} pages</h4>
       <div class="buttons">
-          <button class="btn" id="btn" data-index="${myLibrary.indexOf(book)}">Not Read</button>
-          <button class="btn remove">Remove</button>
+          <button class="btn" id="btn" data-index-read="${myLibrary.indexOf(book)}">Not Read</button>
+          <button class="btn remove" id="remove" data-index-remove="${myLibrary.indexOf(book)}">Remove</button>
       </div>
     </div>`
-    
     container.insertAdjacentHTML("beforeend", div)
-    let read = document.querySelector(`[data-index="${myLibrary.indexOf(book)}"]`)
+    let read = document.querySelector(`[data-index-read="${myLibrary.indexOf(book)}"]`)
     console.log(read)
     if(book.isRead) {
       read.classList.add("read")
@@ -79,4 +81,33 @@ function displayBooks() {
       read.classList.add("not_read")
     }
   }
+  readButtons = document.querySelectorAll("#btn")
+  readButtons.forEach((button) => 
+      button.addEventListener("click", () =>readStatus(button.getAttribute("data-index-read")))
+  );
+  deleteButtons = document.querySelectorAll("#remove")
+  deleteButtons.forEach((button) => 
+    button.addEventListener("click", () => deleteBook(button.getAttribute("data-index-remove")))
+  );
+  console.log(myLibrary)
+}
+function readStatus(dataIndex) {
+  let btn = document.querySelector(`[data-index-read="${dataIndex}"]`)
+  if (btn.classList.contains("not_read")) {
+    btn.classList.remove("not_read")
+    btn.classList.add("read")
+    btn.innerHTML = "Read"
+  }else {
+    btn.classList.remove("read")
+    btn.classList.add("not_read")
+    btn.innerHTML = "Not Read"
+  }
+}
+function deleteBook(dataIndex) {
+  let container = document.getElementById("cards")
+  console.log(myLibrary)
+  myLibrary.splice(dataIndex,1)
+  console.log(myLibrary)
+  container.textContent = ""
+  displayBooks()
 }
