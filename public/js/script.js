@@ -80,15 +80,12 @@ function displayBooks() {
     }else {
       read.classList.add("not_read")
     }
+    let del = document.querySelector(`[data-index-remove="${myLibrary.indexOf(book)}"]`)
+    listenRead(read)
+    listenDelete(del)
   }
-  readButtons = document.querySelectorAll("#btn")
-  readButtons.forEach((button) => 
-      button.addEventListener("click", () =>readStatus(button.getAttribute("data-index-read")))
-  );
-  deleteButtons = document.querySelectorAll("#remove")
-  deleteButtons.forEach((button) => 
-    button.addEventListener("click", () => deleteBook(button.getAttribute("data-index-remove")))
-  );
+  
+    
   console.log(myLibrary)
 }
 function readStatus(dataIndex) {
@@ -97,11 +94,14 @@ function readStatus(dataIndex) {
     btn.classList.remove("not_read")
     btn.classList.add("read")
     btn.innerHTML = "Read"
+    myLibrary[dataIndex].isRead = true
   }else {
     btn.classList.remove("read")
     btn.classList.add("not_read")
     btn.innerHTML = "Not Read"
+    myLibrary[dataIndex].isRead = false
   }
+  console.log(myLibrary)
 }
 function deleteBook(dataIndex) {
   let container = document.getElementById("cards")
@@ -110,4 +110,11 @@ function deleteBook(dataIndex) {
   console.log(myLibrary)
   container.textContent = ""
   displayBooks()
+}
+function listenDelete(del) {
+  del.addEventListener("click", () => deleteBook(del.getAttribute("data-index-remove")))
+  
+}
+function listenRead(read) { 
+  read.addEventListener("click", () =>readStatus(read.getAttribute("data-index-read")))
 }
