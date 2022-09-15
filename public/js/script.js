@@ -1,5 +1,4 @@
 let myLibrary = [];
-let bookNumber = 0;
 let modal = document.getElementById("modal");
 let btn = document.getElementById("add-book");
 let span = document.getElementsByClassName("close")[0];
